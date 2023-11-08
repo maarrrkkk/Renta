@@ -5,11 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/_____"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".login">
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="-130dp"
+        card_view:srcCompat="@drawable/rentaicontransparent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,44 +31,47 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/loginText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Login"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/emailField1"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:drawablePadding="8dp"
-                android:hint="Username"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_edit_text_cut"
+                android:drawableStart="@drawable/custom_mail_icon"
+                android:drawablePadding="12dp"
+                android:hint="Email"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
 
+            <!--Password field-->
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/passwordField1"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_lock_24"
-                android:drawablePadding="8dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/custom_edit_text_cut"
+                android:drawableStart="@drawable/custom_pass_icon"
+                android:drawablePadding="12dp"
                 android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
 
             <Button
                 android:id="@+id/loginButton"
@@ -69,10 +79,10 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/green"
+                android:backgroundTint="@color/blue"
                 android:text="Login"
                 android:textSize="18sp"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="10dp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -81,11 +91,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:minHeight="48dp"
         android:padding="8dp"
         android:text="@string/no_account"
-        android:clickable="true"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="14sp" />
+
+
 
 </LinearLayout>
