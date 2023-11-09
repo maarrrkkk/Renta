@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/_____"
+    android:background="@drawable/login_bg"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".login">
@@ -16,7 +16,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="-100dp"
-        android:layout_marginBottom="-50dp"
+        android:layout_marginBottom="-10dp"
         card_view:srcCompat="@drawable/rentaicontransparent" />
 
     <androidx.cardview.widget.CardView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/custom_edit_text_cut"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="15dp"
         app:cardElevation="20dp">
 
         <LinearLayout
