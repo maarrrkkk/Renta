@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
-import androidx.navigation.findNavController
 
 
 class ActivitySplashScreen : AppCompatActivity() {
@@ -23,9 +22,8 @@ class ActivitySplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.myLooper()!!).postDelayed({
-            startActivity(Intent(this, login::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
-
         }, SPLASH_SCREEN_TIME)
     }
 
