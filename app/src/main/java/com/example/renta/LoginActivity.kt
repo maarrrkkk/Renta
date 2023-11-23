@@ -2,7 +2,6 @@ package com.example.renta
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -62,28 +61,39 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser() {
-        val userUsername = loginUsername.text.toString().trim()
+        val inputText = loginUsername.text.toString().trim()
         val userPassword = loginPassword.text.toString().trim()
 
         val reference: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
-        val checkUserDatabase: Query = reference.orderByChild("username").equalTo(userUsername)
+        val checkUserDatabase: Query
+
+        checkUserDatabase = if (android.util.Patterns.EMAIL_ADDRESS.matcher(inputText).matches()) {
+            // Input is a valid email address
+            reference.orderByChild("email").equalTo(inputText)
+        } else {
+            // Input is not a valid email address, treat it as a username
+            reference.orderByChild("username").equalTo(inputText)
+        }
 
         checkUserDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     loginUsername.error = null
-                    val passwordFromDB = snapshot.child(userUsername).child("password").getValue(String::class.java)
+
+                    val user = snapshot.children.first()
+
+                    val passwordFromDB = user.child("password").getValue(String::class.java)
 
                     if (passwordFromDB == userPassword) {
                         loginUsername.error = null
 
-                        val nameFromDB = snapshot.child(userUsername).child("name").getValue(String::class.java)
-                        val emailFromDB = snapshot.child(userUsername).child("email").getValue(String::class.java)
-                        val usernameFromDB = snapshot.child(userUsername).child("username").getValue(String::class.java)
+                        val nameFromDB = user.child("name").getValue(String::class.java)
+                        val emailFromDB = user.child("email").getValue(String::class.java)
+                        val usernameFromDB = user.child("username").getValue(String::class.java)
 
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
 
-                        intent.putExtra( "name", nameFromDB)
+                        intent.putExtra("name", nameFromDB)
                         intent.putExtra("email", emailFromDB)
                         intent.putExtra("username", usernameFromDB)
                         intent.putExtra("password", passwordFromDB)
@@ -104,4 +114,5 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
 }
