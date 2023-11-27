@@ -1,11 +1,14 @@
 package com.example.renta
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity() {
@@ -14,6 +17,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var signupRedirectText: TextView
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +28,14 @@ class LoginActivity : AppCompatActivity() {
         loginPassword = findViewById(R.id.login_password)
         loginButton = findViewById(R.id.login_button)
         signupRedirectText = findViewById(R.id.signupRedirectText)
+
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // Check if the user is already logged in
+        if (sharedPreferences.getBoolean("isUserLoggedIn", false)) {
+            redirectToMainActivity()
+        }
 
         loginButton.setOnClickListener {
             if (!validateUsername() or !validatePassword()) {
@@ -87,6 +100,9 @@ class LoginActivity : AppCompatActivity() {
                     if (passwordFromDB == userPassword) {
                         loginUsername.error = null
 
+                        // Save login status in SharedPreferences
+                        saveLoginStatus(true)
+
                         val nameFromDB = user.child("name").getValue(String::class.java)
                         val emailFromDB = user.child("email").getValue(String::class.java)
                         val usernameFromDB = user.child("username").getValue(String::class.java)
@@ -114,5 +130,18 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun saveLoginStatus(status: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isUserLoggedIn", status)
+        editor.apply()
+    }
+
+    private fun redirectToMainActivity() {
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish() // Close the LoginActivity to prevent going back
+    }
+
 
 }
