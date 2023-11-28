@@ -8,7 +8,7 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in_short">Login</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
@@ -35,10 +35,10 @@
     <string name="create_acc">Create an account</string>
     <string name="reset_password">Forgot\nPassword</string>
     <string name="forget_password_detail">Provide your account email for which you want to reset your password!</string>
-    <string name="next_btn">Next</string>
+    <string name="reset_btn">Reset Password</string>
     <string name="make_selection">Make\nSelection</string>
     <string name="make_selection_detail">Select which contact details should we use to reset your password?</string>
-    <string name="make_selection_detail_email_or_phone">Email</string>
+    <string name="reset_password_email">Email</string>
     <string name="via_sms">via sms:</string>
     <string name="via_mail">via email:</string>
     <string name="new_credentials">New\nCredentials</string>
@@ -46,4 +46,6 @@
     <string name="update_password_btn">Update</string>
     <string name="hint_new_pass">New Password</string>
     <string name="hint_confirm_new_pass">Confirm Password</string>
+    <string name="email_sent">Email Sent</string>
+    <string name="email_sent_description">Your request has been sent through your email!</string>
 </resources>
