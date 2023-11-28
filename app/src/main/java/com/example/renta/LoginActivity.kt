@@ -5,8 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity() {
@@ -16,14 +20,19 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private lateinit var signupRedirectText: TextView
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         loginUsername = findViewById(R.id.login_username)
         loginPassword = findViewById(R.id.login_password)
         loginButton = findViewById(R.id.login_button)
         signupRedirectText = findViewById(R.id.signupRedirectText)
+
+
 
         loginButton.setOnClickListener {
             if (!validateUsername() or !validatePassword()) {
@@ -36,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
         signupRedirectText.setOnClickListener {
             val intent = Intent(this@LoginActivity, ActivitySignup::class.java)
             startActivity(intent)
+
         }
     }
 
@@ -101,6 +111,7 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle the onCancelled event
+
             }
         })
     }
