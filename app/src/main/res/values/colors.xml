@@ -10,4 +10,6 @@
     <color name="statusBar">#E9FAFF</color>
     <color name="light_white">#D3D5D4</color>
     <color name="transparent"></color>
+    <color name="dark_orange">#C85430</color>
+    <color name="light_grey">#ACA7A5</color>
 </resources>

@@ -46,4 +46,9 @@
     <string name="update_password_btn">Update</string>
     <string name="hint_new_pass">New Password</string>
     <string name="hint_confirm_new_pass">Confirm Password</string>
+    <string name="search_hint">Search here....</string>
+    <string name="room">Room\n</string>
+    <string name="hotels">Hotels</string>
+    <string name="apartment">Apartments</string>
+    <string name="profile_name">Hi Developer</string>
 </resources>
