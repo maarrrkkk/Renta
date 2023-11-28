@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var signupRedirectText: TextView
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var password_forgot: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,14 +29,25 @@ class LoginActivity : AppCompatActivity() {
         loginPassword = findViewById(R.id.login_password)
         loginButton = findViewById(R.id.login_button)
         signupRedirectText = findViewById(R.id.signupRedirectText)
+        password_forgot = findViewById(R.id.forgot_password)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         firebaseAuth = FirebaseAuth.getInstance()
+
+
+
 
         // Check if the user is already logged in
         if (sharedPreferences.getBoolean("isUserLoggedIn", false)) {
             redirectToMainActivity()
         }
+
+        // Redirecting to forgot activity if the user forget the credentials needed
+        password_forgot.setOnClickListener {
+            val intent = Intent(this@LoginActivity, com.example.renta.forgotpassword.ActivityForgotPassword::class.java)
+            startActivity(intent)
+        }
+
 
         loginButton.setOnClickListener {
             if (!validateUsername() or !validatePassword()) {

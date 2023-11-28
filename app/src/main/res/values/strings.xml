@@ -33,4 +33,17 @@
     <string name="check_box_remember_me">Remember Me</string>
     <string name="different_login">Or Login with</string>
     <string name="create_acc">Create an account</string>
+    <string name="reset_password">Forgot\nPassword</string>
+    <string name="forget_password_detail">Provide your account email for which you want to reset your password!</string>
+    <string name="next_btn">Next</string>
+    <string name="make_selection">Make\nSelection</string>
+    <string name="make_selection_detail">Select which contact details should we use to reset your password?</string>
+    <string name="make_selection_detail_email_or_phone">Email</string>
+    <string name="via_sms">via sms:</string>
+    <string name="via_mail">via email:</string>
+    <string name="new_credentials">New\nCredentials</string>
+    <string name="identity_veryfied">Your identity has been verified!\nSet your new password</string>
+    <string name="update_password_btn">Update</string>
+    <string name="hint_new_pass">New Password</string>
+    <string name="hint_confirm_new_pass">Confirm Password</string>
 </resources>
