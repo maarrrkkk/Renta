@@ -15,8 +15,11 @@
         android:theme="@style/Theme.Renta"
         tools:targetApi="31">
         <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".forgotpassword.ActivityForgotPassword"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".forgotpassword.ActivitySuccessPasswordChanged"
             android:exported="false" />
