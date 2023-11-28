@@ -19,20 +19,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
                 android:layout_width="65dp"
                 android:layout_height="75dp"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
-                android:layout_alignParentTop="true"
                 android:src="@drawable/ic_account"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp" />
+
+            <!--gin missin tool ko nala may problem paman sa "de.hdodenhof.circleimageview.CircleImageView" -->
 
             <TextView
                 android:id="@+id/user_profile"

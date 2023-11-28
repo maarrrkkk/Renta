@@ -48,4 +48,14 @@
     <string name="hint_confirm_new_pass">Confirm Password</string>
     <string name="email_sent">Email Sent</string>
     <string name="email_sent_description">Your request has been sent through your email!</string>
+    <string name="search_hint">Search here....</string>
+    <string name="room">Room\n</string>
+    <string name="hotels">Hotels</string>
+    <string name="apartment">Apartments</string>
+    <string name="profile_name">Hi Developer</string>
+
+
+
+
+
 </resources>

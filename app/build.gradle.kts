@@ -83,7 +83,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel:2.3.1")
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation ("androidx.lifecycle:lifecycle-livedata:2.3.1")
     implementation ("androidx.lifecycle:lifecycle-runtime:2.3.1")
 
