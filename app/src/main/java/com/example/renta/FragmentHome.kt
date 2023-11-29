@@ -28,10 +28,10 @@ class FragmentHome : Fragment() {
         topDealRV = view.findViewById(R.id.top_deal_RV)
 
         itemList = ArrayList()
-       // (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
-     //   (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
-       // (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
-      //  (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
+       (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
+     (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
+       (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
+      (itemList as ArrayList<Item>).add(Item("P5 Lagahit St.", "P2500", "2 Bedroom Hotel"))
 
         FirebaseDatabase.getInstance().getReference().child("images")
             .addListenerForSingleValueEvent(object : ValueEventListener {

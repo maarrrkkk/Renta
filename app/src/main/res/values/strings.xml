@@ -38,7 +38,7 @@
     <string name="reset_btn">Reset Password</string>
     <string name="make_selection">Make\nSelection</string>
     <string name="make_selection_detail">Select which contact details should we use to reset your password?</string>
-    <string name="reset_password_email">Email</string>
+    <string name="reset_password_phone">Phone Number</string>
     <string name="via_sms">via sms:</string>
     <string name="via_mail">via email:</string>
     <string name="new_credentials">New\nCredentials</string>

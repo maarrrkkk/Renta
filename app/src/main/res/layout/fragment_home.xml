@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentHome"
+    android:id="@+id/fragment_contatiner"
     android:background="@drawable/login_bg">
 
     <androidx.core.widget.NestedScrollView
