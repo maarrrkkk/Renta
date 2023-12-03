@@ -1,16 +1,14 @@
 package com.example.renta
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity() {
@@ -19,19 +17,36 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var signupRedirectText: TextView
-
-
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var password_forgot: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         loginUsername = findViewById(R.id.login_username)
         loginPassword = findViewById(R.id.login_password)
         loginButton = findViewById(R.id.login_button)
         signupRedirectText = findViewById(R.id.signupRedirectText)
+        password_forgot = findViewById(R.id.forgot_password)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        firebaseAuth = FirebaseAuth.getInstance()
+
+
+
+
+        // Check if the user is already logged in
+        if (sharedPreferences.getBoolean("isUserLoggedIn", false)) {
+            redirectToMainActivity()
+        }
+
+        // Redirecting to forgot activity if the user forget the credentials needed
+        password_forgot.setOnClickListener {
+            val intent = Intent(this@LoginActivity, com.example.renta.forgotpassword.ActivityForgotPassword::class.java)
+            startActivity(intent)
+        }
 
 
         loginButton.setOnClickListener {
@@ -45,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
         signupRedirectText.setOnClickListener {
             val intent = Intent(this@LoginActivity, ActivitySignup::class.java)
             startActivity(intent)
-
         }
     }
 
@@ -72,28 +86,42 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser() {
-        val userUsername = loginUsername.text.toString().trim()
+        val inputText = loginUsername.text.toString().trim()
         val userPassword = loginPassword.text.toString().trim()
 
         val reference: DatabaseReference = FirebaseDatabase.getInstance().getReference("users")
-        val checkUserDatabase: Query = reference.orderByChild("username").equalTo(userUsername)
+        val checkUserDatabase: Query
+
+        checkUserDatabase = if (android.util.Patterns.EMAIL_ADDRESS.matcher(inputText).matches()) {
+            // Input is a valid email address
+            reference.orderByChild("email").equalTo(inputText)
+        } else {
+            // Input is not a valid email address, treat it as a username
+            reference.orderByChild("username").equalTo(inputText)
+        }
 
         checkUserDatabase.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     loginUsername.error = null
-                    val passwordFromDB = snapshot.child(userUsername).child("password").getValue(String::class.java)
+
+                    val user = snapshot.children.first()
+
+                    val passwordFromDB = user.child("password").getValue(String::class.java)
 
                     if (passwordFromDB == userPassword) {
                         loginUsername.error = null
 
-                        val nameFromDB = snapshot.child(userUsername).child("name").getValue(String::class.java)
-                        val emailFromDB = snapshot.child(userUsername).child("email").getValue(String::class.java)
-                        val usernameFromDB = snapshot.child(userUsername).child("username").getValue(String::class.java)
+                        // Save login status in SharedPreferences
+                        saveLoginStatus(true)
+
+                        val nameFromDB = user.child("name").getValue(String::class.java)
+                        val emailFromDB = user.child("email").getValue(String::class.java)
+                        val usernameFromDB = user.child("username").getValue(String::class.java)
 
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
 
-                        intent.putExtra( "name", nameFromDB)
+                        intent.putExtra("name", nameFromDB)
                         intent.putExtra("email", emailFromDB)
                         intent.putExtra("username", usernameFromDB)
                         intent.putExtra("password", passwordFromDB)
@@ -111,8 +139,21 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle the onCancelled event
-
             }
         })
     }
+
+    private fun saveLoginStatus(status: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isUserLoggedIn", status)
+        editor.apply()
+    }
+
+    private fun redirectToMainActivity() {
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish() // Close the LoginActivity to prevent going back
+    }
+
+
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentHome"
+    tools:context=".MainActivity"
     android:id="@+id/fragment_contatiner"
     android:background="@drawable/login_bg">
 
@@ -22,17 +22,15 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
-                android:layout_width="65dp"
-                android:layout_height="75dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
-                android:src="@drawable/ic_account"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp" />
+                android:src="@drawable/ic_account" />
 
             <!--gin missin tool ko nala may problem paman sa "de.hdodenhof.circleimageview.CircleImageView" -->
 
@@ -66,7 +64,7 @@
                     android:id="@+id/search_bar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_search"
+                    android:background="@drawable/white_background_80"
                     android:padding="13dp"
                     android:hint="@string/search_hint"/>
             </LinearLayout>
@@ -80,7 +78,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/light_grey"
+                android:background="@drawable/white_background_80"
                 android:elevation="10dp"
                 android:orientation="horizontal">
 
@@ -112,7 +110,6 @@
                         android:layout_alignEnd="@id/card_room_image"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
                         android:maxLines="1"
                         android:text="@string/room"
                         android:textSize="18sp"
@@ -182,7 +179,7 @@
                         android:layout_marginTop="8dp"
                         android:maxLines="1"
                         android:text="@string/apartment"
-                        android:textSize="15sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
@@ -202,15 +199,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_deal_RV"
-                android:layout_below="@+id/top_deal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
+                android:layout_height="230dp"
+                android:layout_below="@+id/top_deal"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginBottom="40dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 

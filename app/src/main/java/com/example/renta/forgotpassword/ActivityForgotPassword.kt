@@ -11,7 +11,6 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.android.identity.credential.Credential
 import com.example.renta.LoginActivity
 import com.example.renta.R
 import com.google.firebase.FirebaseException
