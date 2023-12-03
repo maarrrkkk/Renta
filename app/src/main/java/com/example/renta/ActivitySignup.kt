@@ -3,7 +3,6 @@ package com.example.renta
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -35,16 +34,16 @@ class ActivitySignup : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-                signupName = findViewById(R.id.signup_name)
-                signupEmail = findViewById(R.id.signup_email)
-                signupUsername = findViewById(R.id.signup_username)
-                signupPassword = findViewById(R.id.signup_password)
-                signupRetypePassword = findViewById(R.id.signup_retype_password)
-                loginRedirectText = findViewById(R.id.loginRedirectText)
-                signupButton = findViewById(R.id.signup_button)
-                signupPhoneNumber = findViewById(R.id.signup_phone_number)
+        signupName = findViewById(R.id.signup_name)
+        signupEmail = findViewById(R.id.signup_email)
+        signupUsername = findViewById(R.id.signup_username)
+        signupPassword = findViewById(R.id.signup_password)
+        signupRetypePassword = findViewById(R.id.signup_retype_password)
+        loginRedirectText = findViewById(R.id.loginRedirectText)
+        signupButton = findViewById(R.id.signup_button)
+        signupPhoneNumber = findViewById(R.id.signup_phone_number)
 
-                signupButton.setOnClickListener {
+        signupButton.setOnClickListener {
 
 
             val name = signupName.text.toString()
@@ -55,33 +54,33 @@ class ActivitySignup : AppCompatActivity() {
 
 
 
-                    // Checking if any of the fields is empty
-                    if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || phoneNumber.isEmpty()) {
-                        Toast.makeText(this@ActivitySignup, "Please fill in all fields", Toast.LENGTH_SHORT).show()
-                        return@setOnClickListener
-                    }
+            // Checking if any of the fields is empty
+            if (name.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || phoneNumber.isEmpty()) {
+                Toast.makeText(this@ActivitySignup, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-                    // Check if the email contains '@' sign
-                    if (!email.contains('@')) {
-                        Toast.makeText(this@ActivitySignup, "Invalid email address. Please include the '@' sign.", Toast.LENGTH_SHORT).show()
-                        return@setOnClickListener
-                    }
+            // Check if the email contains '@' sign
+            if (!email.contains('@')) {
+                Toast.makeText(this@ActivitySignup, "Invalid email address. Please include the '@' sign.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-                    val retypePassword = signupRetypePassword.text.toString()
+            val retypePassword = signupRetypePassword.text.toString()
 
-                    if (password != retypePassword) {
-                        // Passwords do not match, show a toast and return
-                        Toast.makeText(this@ActivitySignup, "Passwords do not match!", Toast.LENGTH_SHORT).show()
+            if (password != retypePassword) {
+                // Passwords do not match, show a toast and return
+                Toast.makeText(this@ActivitySignup, "Passwords do not match!", Toast.LENGTH_SHORT).show()
 
-                        signupPassword.setTextColor(Color.RED)
-                        signupRetypePassword.setTextColor(Color.RED)
+                signupPassword.setTextColor(Color.RED)
+                signupRetypePassword.setTextColor(Color.RED)
 
-                        return@setOnClickListener
-                    }
+                return@setOnClickListener
+            }
 
-                    // If all checks pass, proceed with sign up
-                    database = FirebaseDatabase.getInstance()
-                    reference = database.getReference("users")
+            // If all checks pass, proceed with sign up
+            database = FirebaseDatabase.getInstance()
+            reference = database.getReference("users")
 
             val helperClass = HelperClass(name, email, username, password, phoneNumber)
             reference.child(username).setValue(helperClass)
@@ -91,7 +90,7 @@ class ActivitySignup : AppCompatActivity() {
             startActivity(intent)
         }
 
-                loginRedirectText.setOnClickListener {
+        loginRedirectText.setOnClickListener {
             val intent = Intent(this@ActivitySignup, LoginActivity::class.java)
             startActivity(intent)
         }

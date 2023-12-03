@@ -36,7 +36,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="-2dp"
                 android:layout_toEndOf="@+id/imageView2"
-                android:text="Sign up"
+                android:text="@string/sign_up_text_header"
                 android:textColor="@color/cyan"
                 android:textSize="35sp"
                 android:textStyle="bold" />
@@ -53,7 +53,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:hint="Name"
+            android:hint="@string/text_field_name"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -73,7 +73,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:hint="Username"
+            android:hint="@string/text_field_username"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -93,7 +93,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:hint="Email"
+            android:hint="@string/text_field_email"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -113,7 +113,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:hint="Phone Number"
+            android:hint="@string/text_field_phone_number"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -134,7 +134,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:hint="Password"
+            android:hint="@string/text_field_password"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -155,7 +155,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal"
-            android:hint="Re-Password"
+            android:hint="@string/text_field_re_password"
             app:layout_constraintStart_toStartOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -194,7 +194,7 @@
                 android:layout_height="50dp"
                 android:id="@+id/signup_button"
                 android:textSize="20sp"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 app:cornerRadius="32dp"/>
 
             <TextView
@@ -206,7 +206,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="3dp"
                 android:padding="8dp"
-                android:text="Already a user? Login"
+                android:text="@string/already_a_user_login"
                 android:textColor="@color/cyan"
                 android:textSize="14sp" />
 
