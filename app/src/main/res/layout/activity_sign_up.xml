@@ -10,13 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -29,8 +27,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="25dp"
@@ -40,190 +36,148 @@
                 android:textColor="@color/cyan"
                 android:textSize="35sp"
                 android:textStyle="bold" />
-
         </RelativeLayout>
 
         <!-- signin form-->
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_name1"
+                    style="@style/OutlinedBox"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/text_field_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_username1"
+                    style="@style/OutlinedBox"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/text_field_username">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_email1"
+                    style="@style/OutlinedBox"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/text_field_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_phone_number1"
+                    style="@style/OutlinedBox"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/text_field_phone_number">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_password1"
+                    style="@style/OutlinedBox"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/text_view_password">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/signup_retype_password1"
+                    style="@style/OutlinedBox"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    android:hint="@string/text_field_re_password">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_retype_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"/>
+
+                <RelativeLayout
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="130dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/signup_button"
+                        android:textSize="20sp"
+                        android:text="@string/sign_up"
+                        app:cornerRadius="32dp"/>
+
+                    <TextView
+                        android:id="@+id/loginRedirectText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="3dp"
+                        android:padding="8dp"
+                        android:text="@string/already_a_user_login"
+                        android:textColor="@color/cyan"
+                        android:textSize="14sp" />
 
 
+                </RelativeLayout>
+
+            </LinearLayout>
         </ScrollView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_name1"
-            style="@style/OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/text_field_name"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signup_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_username1"
-            style="@style/OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/text_field_username"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signup_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_email1"
-            style="@style/OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/text_field_email"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signup_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_phone_number1"
-            style="@style/OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/text_field_phone_number"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signup_phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_password1"
-            style="@style/OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/text_field_password"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signup_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_retype_password1"
-            style="@style/OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:gravity="center_horizontal"
-            android:hint="@string/text_field_re_password"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signup_retype_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:id="@+id/signup_button"
-                android:textSize="20sp"
-                android:text="@string/sign_up"
-                app:cornerRadius="32dp"/>
-
-            <TextView
-                android:id="@+id/loginRedirectText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center"
-                android:layout_marginEnd="3dp"
-                android:padding="8dp"
-                android:text="@string/already_a_user_login"
-                android:textColor="@color/cyan"
-                android:textSize="14sp" />
-
-
-        </RelativeLayout>
-
-
-
-
-
     </LinearLayout>
-
-
 </RelativeLayout>
