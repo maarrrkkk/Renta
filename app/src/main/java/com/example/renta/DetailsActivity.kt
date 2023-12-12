@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 class DetailsActivity : AppCompatActivity() {
 
-    private lateinit var image_View: ImageView;
-    private lateinit var price: TextView;
-    private lateinit var shortDescription: TextView;
-    private lateinit var description: TextView;
+    private lateinit var imageView: ImageView
+    private lateinit var priceTextView: TextView
+    private lateinit var shortDescriptionTextView: TextView
+    private lateinit var descriptionTextView: TextView
     private var pri: String? = null
     private var des: String? = null
     private var shdes: String? = null
@@ -20,18 +21,23 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        image_View = findViewById(R.id.image_view)
-        price = findViewById(R.id.price)
-        shortDescription = findViewById(R.id.short_description)
-        description = findViewById(R.id.description)
+        imageView = findViewById(R.id.imageView)
+        priceTextView = findViewById(R.id.price)
+        shortDescriptionTextView = findViewById(R.id.short_description)
+        descriptionTextView = findViewById(R.id.description)
 
         pri = intent.getStringExtra("price")
         des = intent.getStringExtra("description")
         shdes = intent.getStringExtra("ShortDescription")
         img = intent.getStringExtra("image")
 
-        price.text = "₱$pri"
-        description.text = des
-        shortDescription.text = shdes
+        // Load the image using Glide
+        Glide.with(this)
+            .load(img)
+            .into(imageView)
+
+        priceTextView.text = "₱$pri"
+        descriptionTextView.text = des
+        shortDescriptionTextView.text = shdes
     }
 }

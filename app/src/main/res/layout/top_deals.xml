@@ -23,7 +23,7 @@
 
             <TextView
                 android:id="@+id/short_description"
-                android:text="2 bedroom Hotel"
+                android:text=""
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -33,7 +33,7 @@
 
             <TextView
                 android:id="@+id/location"
-                android:text="P5 Lagahit St."
+                android:text=""
                 android:textColor="@color/white"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
@@ -62,7 +62,7 @@
 
             <TextView
                 android:id="@+id/price"
-                android:text="P2,500"
+                android:text=""
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="20sp"
