@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class DetailsActivity : AppCompatActivity() {
 
-    private lateinit var imageView: ImageView;
+    private lateinit var image_View: ImageView;
     private lateinit var price: TextView;
     private lateinit var shortDescription: TextView;
     private lateinit var description: TextView;
@@ -20,7 +20,7 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        imageView = findViewById(R.id.image_view)
+        image_View = findViewById(R.id.image_view)
         price = findViewById(R.id.price)
         shortDescription = findViewById(R.id.short_description)
         description = findViewById(R.id.description)
