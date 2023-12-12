@@ -22,11 +22,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: HomeAdapters
     private lateinit var itemList: MutableList<Item>
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         topDealRV = findViewById(R.id.top_deal_RV)
+
 
         // Set click listener for the profile image
         val profileImage: CircleImageView = findViewById(R.id.profile_image)
@@ -77,7 +79,5 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("image", itemList[position].image)
         startActivity(intent)
     }
-
-
 
 }

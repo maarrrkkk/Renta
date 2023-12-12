@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Jeo Tiballa"
-        android:textColor="#ffffff"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="jeoTiballa@pornhub.com"
-        android:textColor="#ffffff"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -55,7 +55,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/white_background_80"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +108,7 @@
         <!-- Email Row -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <TextView
@@ -215,7 +214,7 @@
             <TextView
                 android:id="@+id/addressLabel2"
                 android:layout_width="0dp"
-                android:layout_height="59dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:text="Brgy.Mapagmahal Calbayog City"
                 android:textAlignment="viewEnd"
@@ -245,7 +244,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="355dp"
+        android:layout_width="140dp"
         android:layout_height="47dp"
         android:background="@drawable/button_background"
         android:gravity="center"
