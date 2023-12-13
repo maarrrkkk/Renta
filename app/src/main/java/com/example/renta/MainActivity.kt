@@ -1,7 +1,12 @@
 package com.example.renta
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -64,6 +69,10 @@ class MainActivity : AppCompatActivity() {
                     // Handle onCancelled
                 }
             })
+
+        // Color the "RENTA" text with different colors
+        val rentaTextView: TextView = findViewById(R.id.RENTA_HEADER)
+        colorTextInTextView(rentaTextView)
     }
 
     fun onItemPosition(position: Int) {
@@ -74,5 +83,19 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("ShortDescription", itemList[position].shortDescription)
         intent.putExtra("image", itemList[position].image)
         startActivity(intent)
+    }
+
+    private fun colorTextInTextView(textView: TextView) {
+        val fullText = "RENTA"
+        val spannableString = SpannableString(fullText)
+
+        // Set the color for the first three characters (RENT) to white
+        spannableString.setSpan(ForegroundColorSpan(Color.BLACK), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        // Set the color for the last character (A) to yellow
+        spannableString.setSpan(ForegroundColorSpan(Color.YELLOW), 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        // Set the SpannableString to the TextView
+        textView.text = spannableString
     }
 }
