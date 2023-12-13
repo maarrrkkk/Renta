@@ -1,6 +1,7 @@
 package com.example.renta.adapters;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.renta.R;
 import com.example.renta.listeners.ItemListener;
 import com.example.renta.model.Item;
@@ -43,6 +48,19 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
         holder.price.setText(currentItem.getPrice());
         holder.location.setText(currentItem.getLocation());
         holder.shortDescription.setText(currentItem.getShortDescription());
+        Glide.with(context)
+                .load(itemList.get(position).getImage())
+                .into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        holder.relativeLayout.setBackground(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
     }
 
     @Override

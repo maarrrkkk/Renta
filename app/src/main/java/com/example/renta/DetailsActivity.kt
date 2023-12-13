@@ -31,13 +31,13 @@ class DetailsActivity : AppCompatActivity() {
         shdes = intent.getStringExtra("ShortDescription")
         img = intent.getStringExtra("image")
 
-        // Load the image using Glide
-        Glide.with(this)
-            .load(img)
-            .into(imageView)
 
         priceTextView.text = "₱$pri"
         descriptionTextView.text = des
         shortDescriptionTextView.text = shdes
+        // Load the image using Glide
+        Glide.with(this)
+            .load(img)
+            .into(imageView)
     }
 }
