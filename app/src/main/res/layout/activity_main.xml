@@ -20,23 +20,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/RENTA_HEADER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="40sp"
+                android:fontFamily="@font/impact">
+            </TextView>
+
+
             <LinearLayout
                 android:id="@+id/userHeader"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="80dp"
                 android:layout_height="wrap_content"
                 android:gravity="bottom">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="16dp"
-
                     android:src="@drawable/ic_account" />
-
-                <!--gin missin tool ko nala may problem paman sa "de.hdodenhof.circleimageview.CircleImageView" -->
 
                 <TextView
                     android:id="@+id/user_profile"
@@ -87,43 +97,7 @@
                 android:elevation="10dp"
                 android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:padding="8dp">
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_room_image"
-                        android:layout_centerHorizontal="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:cardCornerRadius="16dp">
-
-                        <ImageView
-                            android:id="@+id/room_image"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/room" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/card_room_image"
-                        android:layout_alignStart="@+id/card_room_image"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="8dp"
-                        android:maxLines="1"
-                        android:text="@string/room"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
