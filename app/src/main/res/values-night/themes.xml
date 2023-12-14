@@ -8,8 +8,8 @@
         <!-- For dark theme -->
         <item name="colorPrimaryVariant">@color/your_dark_primary_variant</item>
         <item name="colorOnPrimary">@color/your_light_text_color</item>
-        <item name="colorSurface">@color/your_dark_surface_color</item>
-        <item name="colorOnSurface">@color/your_light_text_color</item>
+        <item name="colorSurface">@color/black</item>
+        <item name="colorOnSurface">@color/black</item>
     </style>
 
     <style name="Theme.Renta" parent="Base.Theme.Renta" />
