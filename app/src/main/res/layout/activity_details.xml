@@ -1,228 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailsActivity">
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/image"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="240dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp"
+            tools:ignore="MissingConstraints">
 
-            <ImageView
-                android:id="@+id/imageView"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/apartments"
-                android:scaleType="centerCrop"/>
+                >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/apartments"
+                    android:scaleType="centerCrop"/>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="vertical"
-                android:background="@drawable/card_bg"
-                android:layout_alignParentBottom="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/card_bg"
+                    android:layout_alignParentBottom="true">
 
-                <TextView
-                    android:id="@+id/Title"
-                    android:text="Appartment"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="40sp"
-                    android:gravity="bottom"
-                    android:layout_marginStart="8dp"
-                    android:layout_width="300dp"
-                    android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/title"
+                        android:text="Appartment"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:gravity=""
+                        android:textSize="40sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_width="300dp"
+                        android:layout_height="match_parent"/>
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Call"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/yellow"
+                        android:textColor="@android:color/white" />
 
-        </RelativeLayout>
 
+                </LinearLayout>
 
+            </RelativeLayout>
 
+        </androidx.cardview.widget.CardView>
 
-
-
-
-    </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:id="@+id/card_view"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:cardCornerRadius="16dp"
-        android:backgroundTint="@color/dark_orange"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="16dp">
-
-        <TextView
-            android:id="@+id/price"
-            android:text="P2,500"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="35sp"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
-
-        <TextView
-            android:id="@+id/short_description"
-            android:text="2 BedRoom"
-            android:textStyle="italic"
-            android:textSize="20sp"
-            android:maxLines="2"
-            android:layout_marginLeft="40dp"
-            android:gravity="end"
+        <LinearLayout
+            android:id="@+id/card_view"
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:cardCornerRadius="16dp"
+            android:backgroundTint="@color/dark_orange"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/price"
+                android:text="P2,500"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="35sp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/short_description"
+                android:text="2 BedRoom"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                android:maxLines="2"
+                android:layout_marginLeft="40dp"
+                android:gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+
+
+        <TextView
+            android:id="@+id/text"
+            android:textSize="20sp"
+            android:text="Location: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/card_view"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/location"
+            app:layout_constraintTop_toBottomOf="@+id/text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/yellow"
+            android:maxLines="4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/text2"
+            android:textSize="20sp"
+            android:text="Category: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/location"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/category"
+            app:layout_constraintTop_toBottomOf="@+id/text2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/yellow"
+            android:maxLines="4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
 
 
 
-    <TextView
-        android:id="@+id/text"
-        android:textSize="20sp"
-        android:text="Location: "
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/card_view"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/text3"
+            android:textSize="20sp"
+            android:text="Description: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/category"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/location"
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/yellow"
-        android:maxLines="4"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/description"
+            app:layout_constraintTop_toBottomOf="@+id/text3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
+            android:maxLines="4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <TextView
+            android:id="@+id/text4"
+            android:textSize="20sp"
+            android:text="Details: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/text2"
-        android:textSize="20sp"
-        android:text="Category: "
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/location"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/details"
+            app:layout_constraintTop_toBottomOf="@+id/text4"
 
-    <TextView
-        android:id="@+id/category"
-        app:layout_constraintTop_toBottomOf="@+id/text2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/yellow"
-        android:maxLines="4"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            android:maxLines="4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
 
-
-
-    <TextView
-        android:id="@+id/text3"
-        android:textSize="20sp"
-        android:text="Description: "
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/category"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/description"
-        app:layout_constraintTop_toBottomOf="@+id/text3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/black"
-        android:maxLines="4"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/text4"
-        android:textSize="20sp"
-        android:text="Details: "
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/details"
-        app:layout_constraintTop_toBottomOf="@+id/text4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:maxLines="4"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"
-        android:text="Call"
-        android:background="@drawable/rounded_button"/>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
