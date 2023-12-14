@@ -1,6 +1,8 @@
 package com.example.renta
 
+import android.view.View
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,8 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+
 
         imageView = findViewById(R.id.imageView)
         priceTextView = findViewById(R.id.price)

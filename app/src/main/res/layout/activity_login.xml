@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/login_bg"
+        android:background="@color/white"
         android:alpha="0.7"/>
 
     <LinearLayout
@@ -128,6 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:id="@+id/login_button"
+                android:backgroundTint="@color/cyan"
                 android:text="Login"
                 app:cornerRadius="10dp"/>
 

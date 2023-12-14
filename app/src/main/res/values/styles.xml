@@ -3,6 +3,7 @@
     <style name="OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/cyan</item>
         <item name="hintTextColor">@color/cyan</item>
+
     </style>
 
 

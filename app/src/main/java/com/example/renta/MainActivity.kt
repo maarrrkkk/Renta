@@ -20,6 +20,10 @@ import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Objects
 
+import android.content.Context;
+import androidx.core.content.ContextCompat
+
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var topDealRV: RecyclerView
@@ -60,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     // Initialize and set up the adapter after data retrieval
                     adapter = HomeAdapters(this@MainActivity, itemList, ItemListener { position -> onItemPosition(position) })
                     val linearLayoutManager = LinearLayoutManager(this@MainActivity)
-                    linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
+                    linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
                     topDealRV.layoutManager = linearLayoutManager
                     topDealRV.adapter = adapter
                 }
@@ -88,12 +92,16 @@ class MainActivity : AppCompatActivity() {
     private fun colorTextInTextView(textView: TextView) {
         val fullText = "RENTA"
         val spannableString = SpannableString(fullText)
+        // Get the resolved color value for the color resource
+        val yellowColor = ContextCompat.getColor(textView.context, R.color.yellow2)
 
         // Set the color for the first three characters (RENT) to white
-        spannableString.setSpan(ForegroundColorSpan(Color.BLACK), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(ForegroundColorSpan(yellowColor), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+
 
         // Set the color for the last character (A) to yellow
-        spannableString.setSpan(ForegroundColorSpan(Color.YELLOW), 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(ForegroundColorSpan(Color.BLACK), 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         // Set the SpannableString to the TextView
         textView.text = spannableString
