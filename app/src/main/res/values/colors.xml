@@ -13,10 +13,11 @@
     <color name="statusBar">#E9FAFF</color>
     <color name="light_white">#D3D5D4</color>
     <color name="transparent"></color>
-    <color name="dark_orange">#C85430</color>
+    <color name="dark_orange">#C84821</color>
     <color name="light_grey">#ACA7A5</color>
     <color name="slightly_light">#e9edf0</color>
     <color name="white80">#80ABB8C3</color>
+    <color name="yellow3">#F39C1C</color>
 
     <color name="blue">#2196F3</color> <!-- You can use the same color for dark mode if you want -->
     <color name="your_dark_primary_variant">#1565C0</color> <!-- Adjust this for dark mode -->
