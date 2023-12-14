@@ -54,32 +54,13 @@
 
 
 
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/userHeader"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp">
 
-        <EditText
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/white_background_80"
-            android:padding="13dp"
-            android:hint="@string/search_hint"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linear_category"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:layout_below="@id/linear"
+        android:layout_below="@id/userHeader"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -193,7 +174,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/top_deal"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="40dp">
+                android:layout_marginBottom="10dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 
