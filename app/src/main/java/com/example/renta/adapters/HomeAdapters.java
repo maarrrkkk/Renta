@@ -19,6 +19,7 @@ import com.example.renta.R;
 import com.example.renta.listeners.ItemListener;
 import com.example.renta.model.Item;
 
+import java.text.BreakIterator;
 import java.util.List;
 
 public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> {
@@ -77,6 +78,7 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
         private final TextView shortDescription;
         private final RelativeLayout relativeLayout;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -84,6 +86,8 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
             location = itemView.findViewById(R.id.location);
             shortDescription = itemView.findViewById(R.id.short_description);
             relativeLayout = itemView.findViewById(R.id.relative_layout);
+
+
 
             itemView.setOnClickListener(v -> itemListener.OnItemPosition(getAdapterPosition()));
         }

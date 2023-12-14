@@ -2,9 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Renta" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorAccent">@color/blue</item>
+
+        <!-- For dark theme -->
+        <item name="colorPrimaryVariant">@color/your_dark_primary_variant</item>
+        <item name="colorOnPrimary">@color/your_light_text_color</item>
+        <item name="colorSurface">@color/your_dark_surface_color</item>
+        <item name="colorOnSurface">@color/your_light_text_color</item>
     </style>
 
     <style name="Theme.Renta" parent="Base.Theme.Renta" />

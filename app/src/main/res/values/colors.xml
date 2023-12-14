@@ -7,7 +7,7 @@
     <color name="yellow2">#ffd700</color>
 
 
-    <color name="blue">#00C2FF</color>
+
     <color name="green">#008000</color>
     <color name="gray">#828282</color>
     <color name="statusBar">#E9FAFF</color>
@@ -17,5 +17,10 @@
     <color name="light_grey">#ACA7A5</color>
     <color name="slightly_light">#e9edf0</color>
     <color name="white80">#80ABB8C3</color>
+
+    <color name="blue">#2196F3</color> <!-- You can use the same color for dark mode if you want -->
+    <color name="your_dark_primary_variant">#1565C0</color> <!-- Adjust this for dark mode -->
+    <color name="your_light_text_color">#FFFFFF</color> <!-- Light text color on dark background -->
+    <color name="your_dark_surface_color">#212121</color> <!-- Adjust this for dark mode -->
 
 </resources>

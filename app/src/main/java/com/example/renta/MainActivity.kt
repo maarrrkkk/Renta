@@ -1,6 +1,11 @@
 package com.example.renta
 
+
+
+
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -8,6 +13,8 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.renta.adapters.HomeAdapters
@@ -20,8 +27,6 @@ import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Objects
 
-import android.content.Context;
-import androidx.core.content.ContextCompat
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,9 +35,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: HomeAdapters
     private lateinit var itemList: MutableList<Item>
 
+    private val PERMISSION_CODE = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         topDealRV = findViewById(R.id.top_deal_RV)
 
@@ -41,6 +49,18 @@ class MainActivity : AppCompatActivity() {
         profileImage.setOnClickListener {
             val intent = Intent(this@MainActivity, ActivityProfile::class.java)
             startActivity(intent)
+        }
+
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CALL_PHONE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CALL_PHONE),
+                PERMISSION_CODE
+            )
         }
 
         itemList = ArrayList()
