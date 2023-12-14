@@ -19,15 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/circular"
-        app:srcCompat="@drawable/baseline_account_circle_24"
-         />
+        app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/TitleName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Jeo Tiballa"
+        android:text="Admin"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -41,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="jeoTiballa@pornhub.com"
+        android:text="admin123@gmail.com"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/TitleName"
@@ -51,9 +50,9 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="320dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,16 +60,24 @@
         app:layout_constraintTop_toBottomOf="@+id/TitleEmail">
 
         <!-- Password Row -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:alpha="0.5"
+            android:background="#585858" />
+
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/passwordLabel"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Password:"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -78,165 +85,141 @@
 
             <TextView
                 android:id="@+id/passwordLabel2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="*********"
-                android:textAlignment="viewEnd"
+                android:textAlignment="center"
                 android:textColor="#5b5b5b"
-                android:textSize="13sp" />
+                android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/changePass"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change"
-                android:textAlignment="viewEnd"
-                android:textColor="#5b5b5b"
-                android:textSize="13sp" />
         </TableRow>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:alpha="0.5"
             android:background="#585858" />
 
         <!-- Email Row -->
+
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="54dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/emailLabel"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Email:"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/emailLabel2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="jeoTiballa@pornhub.com"
-                android:textAlignment="viewEnd"
+                android:text="admin123@gmail.com"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:textColor="#5b5b5b"
-                android:textSize="13sp" />
+                android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/changeEmail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change"
-                android:textAlignment="viewEnd"
-                android:textColor="#5b5b5b"
-                android:textSize="13sp" />
         </TableRow>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:alpha="0.5"
             android:background="#585858" />
 
         <!-- Mobile Row -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/mobileLabel"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Mobile:"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/mobileLabel2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_width="160dp"
+                android:layout_height="55dp"
                 android:layout_weight="1"
                 android:text="1234567890"
-                android:textAlignment="viewEnd"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:textColor="#5b5b5b"
-                android:textSize="13sp" />
+                android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/changeMobile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change"
-                android:textAlignment="viewEnd"
-                android:textColor="#5b5b5b"
-                android:textSize="13sp" />
         </TableRow>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:alpha="0.5"
             android:background="#585858" />
 
         <!-- Address Row -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/addressLabel"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Address:"
+                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/addressLabel2"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Brgy.Mapagmahal Calbayog City"
-                android:textAlignment="viewEnd"
+                android:text="Brgy.admin123 "
+                android:gravity="center"
+                android:textAlignment="center"
                 android:textColor="#5b5b5b"
-                android:textSize="13sp" />
+                android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/changeAddress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change"
-                android:textAlignment="viewEnd"
-                android:textColor="#5b5b5b"
-                android:textSize="13sp" />
         </TableRow>
 
         <!-- Separator -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:alpha="0.5"
             android:background="#585858" />
     </LinearLayout>
@@ -246,6 +229,10 @@
         android:id="@+id/button2"
         android:layout_width="140dp"
         android:layout_height="47dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/button_background"
         android:gravity="center"
         android:text="Logout"
@@ -254,6 +241,25 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/EditProfileButton"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/EditProfileButton"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/EditProfile"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
