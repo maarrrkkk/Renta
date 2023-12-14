@@ -50,8 +50,10 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
         holder.shortDescription.setText(currentItem.getShortDescription());
         Glide.with(context)
                 .load(itemList.get(position).getImage())
+                .placeholder(R.drawable.room)
                 .into(new CustomTarget<Drawable>() {
                     @Override
+
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
                         holder.relativeLayout.setBackground(resource);
                     }

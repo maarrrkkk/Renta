@@ -38,6 +38,7 @@ class DetailsActivity : AppCompatActivity() {
         // Load the image using Glide
         Glide.with(this)
             .load(img)
+            .placeholder(R.drawable.room)
             .into(imageView)
     }
 }
