@@ -11,8 +11,7 @@
     <RelativeLayout
         android:id="@+id/relative_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/room">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/background_image"

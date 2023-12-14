@@ -8,6 +8,9 @@
     tools:context=".MainActivity"
     android:id="@+id/fragment_container">
 
+
+
+
     <TextView
         android:id="@+id/RENTA_HEADER"
         android:layout_width="wrap_content"
@@ -87,6 +90,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
+                    android:elevation="10dp"
                     android:src="@drawable/hotel" />
             </androidx.cardview.widget.CardView>
 
@@ -126,6 +130,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
+                    android:elevation="10dp"
                     android:src="@drawable/apartments" />
             </androidx.cardview.widget.CardView>
 
@@ -165,6 +170,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="16dp"/>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/top_deal_RV"

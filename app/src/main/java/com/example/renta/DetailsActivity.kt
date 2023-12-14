@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -36,6 +37,10 @@ class DetailsActivity : AppCompatActivity() {
     private var shdes: String? = null
     private var img: String? = null
     private var loc: String? = null
+
+    fun onBackButtonClick(view: View?) {
+        onBackPressed()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
