@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Renta" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorAccent">@color/black</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorAccent">@color/blue</item>
 
         <!-- Add the following line to make the status bar text black -->
         <item name="android:windowLightStatusBar">true</item>
