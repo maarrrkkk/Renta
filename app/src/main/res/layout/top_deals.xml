@@ -58,7 +58,7 @@
                 <TextView
                     android:id="@+id/price"
                     android:textAlignment="center"
-                    android:text="$"
+                    android:text=""
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="17sp"

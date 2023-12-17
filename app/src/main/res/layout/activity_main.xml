@@ -8,11 +8,6 @@
     tools:context=".MainActivity"
     android:id="@+id/fragment_container">
 
-
-
-
-
-
     <!-- Moved out of NestedScrollView -->
     <RelativeLayout
         android:id="@+id/userHeader"
@@ -36,7 +31,6 @@
             android:id="@+id/profile_image"
             android:layout_width="40dp"
             android:layout_height="40dp"
-
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="25sp"
@@ -47,42 +41,45 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userHeader">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/userHeader"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/top_deal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Top Deals"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="16dp"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/top_deal_RV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/top_deal"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/userHeader"
-        android:layout_alignParentBottom="true">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/top_deal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Top Deals"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="16dp"/>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/top_deal_RV"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/top_deal"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="10dp">
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

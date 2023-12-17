@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -14,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.renta.adapters.HomeAdapters
 import com.example.renta.listeners.ItemListener
 import com.example.renta.model.Item
@@ -24,21 +26,32 @@ import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Objects
 
-
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var topDealRV: RecyclerView
     private lateinit var adapter: HomeAdapters
     private lateinit var itemList: MutableList<Item>
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private val PERMISSION_CODE = 100
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initialize SwipeRefreshLayout
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
+        swipeRefreshLayout.setOnRefreshListener {
+            // Your logic to refresh the data (e.g., fetch new data from the server)
+            // For demonstration purposes, let's use a delayed refresh (remove this in production)
+            Handler().postDelayed({
+                // Update your RecyclerView data here
+                // For demonstration, we'll notifyDataSetChanged()
+                adapter.notifyDataSetChanged()
+
+                // Hide the refresh indicator
+                swipeRefreshLayout.isRefreshing = false
+            }, 2000) // Delay in milliseconds (e.g., 2000ms = 2 seconds)
+        }
 
         topDealRV = findViewById(R.id.top_deal_RV)
 
@@ -61,7 +74,6 @@ class MainActivity : AppCompatActivity() {
                 PERMISSION_CODE
             )
         }
-
 
         itemList = ArrayList()
 
@@ -107,7 +119,6 @@ class MainActivity : AppCompatActivity() {
         colorTextInTextView(rentaTextView)
     }
 
-
     fun onItemPosition(position: Int) {
         val intent = Intent(this, DetailsActivity::class.java)
 
@@ -144,5 +155,4 @@ class MainActivity : AppCompatActivity() {
         // Set the SpannableString to the TextView
         textView.text = spannableString
     }
-
 }
