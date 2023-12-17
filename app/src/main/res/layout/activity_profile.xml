@@ -67,34 +67,6 @@
             android:alpha="0.5"
             android:background="#585858" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/passwordLabel"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Password:"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/passwordLabel2"
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="*********"
-                android:textAlignment="center"
-                android:textColor="#5b5b5b"
-                android:textSize="18sp" />
-
-        </TableRow>
 
         <!-- Separator -->
         <View
