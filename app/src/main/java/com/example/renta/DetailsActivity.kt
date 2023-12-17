@@ -21,16 +21,11 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var callBtn: Button
     private val PERMISSION_CODE = 100
 
-
-
-
     private lateinit var imageView: ImageView
     private lateinit var priceTextView: TextView
     private lateinit var shortDescriptionTextView: TextView
     private lateinit var descriptionTextView: TextView
     private lateinit var locationTextView: TextView
-
-
 
     private var pri: String? = null
     private var des: String? = null
@@ -59,26 +54,16 @@ class DetailsActivity : AppCompatActivity() {
             makePhoneCall()
         }
 
-
-
-
-
-
         pri = intent.getStringExtra("price")
         des = intent.getStringExtra("description")
         shdes = intent.getStringExtra("ShortDescription")
         img = intent.getStringExtra("image")
         loc = intent.getStringExtra("location")
 
-
-
         priceTextView.text = "₱$pri"
         descriptionTextView.text = des
         shortDescriptionTextView.text = shdes
         locationTextView.text = loc
-
-
-
 
         // Load the image using Glide
         Glide.with(this)

@@ -28,8 +28,6 @@ import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Objects
 
-
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var topDealRV: RecyclerView
@@ -95,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     for (dataSnapshot in snapshot.children) {
+                        // Parse Firebase data and populate the itemList
                         (itemList as ArrayList<Item>).add(
                             Item(
                                 Objects.requireNonNull(dataSnapshot.child("location").value)
@@ -132,9 +131,11 @@ class MainActivity : AppCompatActivity() {
         colorTextInTextView(rentaTextView)
     }
 
+    // Function to handle item click in RecyclerView
     fun onItemPosition(position: Int) {
         val intent = Intent(this, DetailsActivity::class.java)
 
+        // Pass data to the DetailsActivity
         intent.putExtra("price", itemList[position].price)
         intent.putExtra("location", itemList[position].location)
         intent.putExtra("description", itemList[position].description)
@@ -143,6 +144,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    // Function to color specific text in a TextView
     private fun colorTextInTextView(textView: TextView) {
         val fullText = "RENTA"
         val spannableString = SpannableString(fullText)
@@ -169,6 +171,7 @@ class MainActivity : AppCompatActivity() {
         textView.text = spannableString
     }
 
+    // Function to check if the device is connected to the internet
     private fun isNetworkConnected(): Boolean {
         val connectivityManager =
             getSystemService(AppCompatActivity.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -176,6 +179,7 @@ class MainActivity : AppCompatActivity() {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }
 
+    // Function to show a Snackbar when there is no internet connection
     private fun showNoInternetSnackbar() {
         val snackbar = Snackbar.make(
             findViewById(android.R.id.content),
@@ -184,5 +188,4 @@ class MainActivity : AppCompatActivity() {
         )
         snackbar.show()
     }
-
 }

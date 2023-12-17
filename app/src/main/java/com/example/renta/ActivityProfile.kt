@@ -17,9 +17,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-
 class ActivityProfile : AppCompatActivity() {
 
+    // Declare UI elements
     private lateinit var imageView: ImageView
     private lateinit var button: FloatingActionButton
     private lateinit var TitleName: TextView
@@ -30,7 +30,7 @@ class ActivityProfile : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
-
+    // Function to handle back button click
     fun onBackButtonClick(view: View?) {
         onBackPressed()
     }
@@ -39,6 +39,7 @@ class ActivityProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        // Initialize UI elements
         TitleName = findViewById(R.id.TitleName)
         TitleEmail = findViewById(R.id.TitleEmail)
         emailLabel2 = findViewById(R.id.emailLabel2)
@@ -47,11 +48,15 @@ class ActivityProfile : AppCompatActivity() {
         imageView = findViewById(R.id.userProfPic)
         button = findViewById(R.id.floatingActionButton2)
 
+        // Initialize FirebaseAuth and DatabaseReference
         auth = FirebaseAuth.getInstance()
-        databaseReference = FirebaseDatabase.getInstance().reference.child("users").child(auth.currentUser?.uid ?: "")
+        databaseReference = FirebaseDatabase.getInstance().reference.child("users")
+            .child(auth.currentUser?.uid ?: "")
 
+        // Fetch user data from Firebase Database
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                // Retrieve user information from the database
                 val name = snapshot.child("name").getValue(String::class.java)
                 val email = snapshot.child("email").getValue(String::class.java)
                 val phoneNumber = snapshot.child("phoneNumber").getValue(String::class.java)
@@ -61,33 +66,35 @@ class ActivityProfile : AppCompatActivity() {
                 TitleEmail.text = email
                 emailLabel2.text = email
                 mobileLabel2.text = phoneNumber
+
+                // Load the default image or user profile image using Glide
                 Glide.with(this@ActivityProfile)
                     .load(R.drawable.ic_account) // Default image resource
                     .into(imageView)
-
             }
-                override fun onCancelled(error: DatabaseError) {
 
+            override fun onCancelled(error: DatabaseError) {
+                // Handle onCancelled event
             }
         })
 
+        // Set ActionBar background color
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.white)))
 
-            supportActionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.white)))  // Set ActionBar background color
-
-        button.setOnClickListener{
-
+        // Set up click listener for the floating action button to pick an image
+        button.setOnClickListener {
             ImagePicker.with(this)
-                .cropSquare()	    			//Crop image(Optional), Check Customization for more option
-                .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                .cropSquare()	    			// Crop image (Optional), Check Customization for more options
+                .compress(1024)				// Final image size will be less than 1 MB (Optional)
+                .maxResultSize(1080, 1080)	// Final image resolution will be less than 1080 x 1080 (Optional)
                 .start()
         }
     }
 
-
-
+    // Handle the result of the image picker
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        // Set the selected image to the ImageView
         imageView.setImageURI(data?.data)
     }
 }

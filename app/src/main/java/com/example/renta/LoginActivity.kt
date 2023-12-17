@@ -43,13 +43,13 @@ class LoginActivity : AppCompatActivity() {
             redirectToMainActivity()
         }
 
-        // Redirecting to forgot activity if the user forget the credentials needed
+        // Redirecting to forgot activity if the user forgets the credentials needed
         password_forgot.setOnClickListener {
             val intent = Intent(this@LoginActivity, com.example.renta.forgotpassword.ActivityForgotPassword::class.java)
             startActivity(intent)
         }
 
-
+        // Set up onClickListener for the login button
         loginButton.setOnClickListener {
             if (!validateUsername() or !validatePassword()) {
                 // Handle validation failure
@@ -58,12 +58,14 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        // Set up onClickListener for the signup redirection text
         signupRedirectText.setOnClickListener {
             val intent = Intent(this@LoginActivity, ActivitySignup::class.java)
             startActivity(intent)
         }
     }
 
+    // Function to validate the entered username
     private fun validateUsername(): Boolean {
         val valText = loginUsername.text.toString()
         return if (valText.isEmpty()) {
@@ -75,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Function to validate the entered password
     private fun validatePassword(): Boolean {
         val valText = loginPassword.text.toString()
         return if (valText.isEmpty()) {
@@ -86,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Function to check user credentials in Firebase Database
     private fun checkUser() {
         val inputText = loginUsername.text.toString().trim()
         val userPassword = loginPassword.text.toString().trim()
@@ -116,17 +120,17 @@ class LoginActivity : AppCompatActivity() {
                         // Save login status in SharedPreferences
                         saveLoginStatus(true)
 
+                        // Retrieve user data from the database
                         val nameFromDB = user.child("name").getValue(String::class.java)
                         val emailFromDB = user.child("email").getValue(String::class.java)
                         val usernameFromDB = user.child("username").getValue(String::class.java)
 
+                        // Start MainActivity and pass user data
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
-
                         intent.putExtra("name", nameFromDB)
                         intent.putExtra("email", emailFromDB)
                         intent.putExtra("username", usernameFromDB)
                         intent.putExtra("password", passwordFromDB)
-
                         startActivity(intent)
                     } else {
                         loginPassword.error = "Invalid Credentials"
@@ -144,17 +148,17 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
+    // Function to save the login status in SharedPreferences
     private fun saveLoginStatus(status: Boolean) {
         val editor = sharedPreferences.edit()
         editor.putBoolean("isUserLoggedIn", status)
         editor.apply()
     }
 
+    // Function to redirect to the main activity
     private fun redirectToMainActivity() {
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
         startActivity(intent)
         finish() // Close the LoginActivity to prevent going back
     }
-
-
 }
