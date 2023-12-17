@@ -1,6 +1,8 @@
 package com.example.renta
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable
@@ -8,6 +10,7 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,15 +25,20 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Objects
 
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var topDealRV: RecyclerView
     private lateinit var adapter: HomeAdapters
     private lateinit var itemList: MutableList<Item>
+    private val PERMISSION_CODE = 100
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         topDealRV = findViewById(R.id.top_deal_RV)
 
@@ -41,6 +49,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // PERMISSION ACCESS
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                PERMISSION_CODE
+            )
+        }
+
+
         itemList = ArrayList()
 
         // Firebase data retrieval
@@ -50,17 +72,25 @@ class MainActivity : AppCompatActivity() {
                     for (dataSnapshot in snapshot.children) {
                         (itemList as ArrayList<Item>).add(
                             Item(
-                                Objects.requireNonNull(dataSnapshot.child("location").value).toString(),
-                                Objects.requireNonNull(dataSnapshot.child("price").value).toString(),
-                                Objects.requireNonNull(dataSnapshot.child("description").value).toString(),
-                                Objects.requireNonNull(dataSnapshot.child("shortDescription").value).toString(),
-                                Objects.requireNonNull(dataSnapshot.child("image").value).toString(),
+                                Objects.requireNonNull(dataSnapshot.child("location").value)
+                                    .toString(),
+                                Objects.requireNonNull(dataSnapshot.child("price").value)
+                                    .toString(),
+                                Objects.requireNonNull(dataSnapshot.child("description").value)
+                                    .toString(),
+                                Objects.requireNonNull(dataSnapshot.child("shortDescription").value)
+                                    .toString(),
+                                Objects.requireNonNull(dataSnapshot.child("image").value)
+                                    .toString(),
                             )
                         )
                     }
 
                     // Initialize and set up the adapter after data retrieval
-                    adapter = HomeAdapters(this@MainActivity, itemList, ItemListener { position -> onItemPosition(position) })
+                    adapter = HomeAdapters(
+                        this@MainActivity,
+                        itemList,
+                        ItemListener { position -> onItemPosition(position) })
                     val linearLayoutManager = LinearLayoutManager(this@MainActivity)
                     linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
                     topDealRV.layoutManager = linearLayoutManager
@@ -77,8 +107,10 @@ class MainActivity : AppCompatActivity() {
         colorTextInTextView(rentaTextView)
     }
 
+
     fun onItemPosition(position: Int) {
         val intent = Intent(this, DetailsActivity::class.java)
+
         intent.putExtra("price", itemList[position].price)
         intent.putExtra("location", itemList[position].location)
         intent.putExtra("description", itemList[position].description)
@@ -94,14 +126,23 @@ class MainActivity : AppCompatActivity() {
         val yellowColor = ContextCompat.getColor(textView.context, R.color.yellow2)
 
         // Set the color for the first three characters (RENT) to white
-        spannableString.setSpan(ForegroundColorSpan(yellowColor), 0, 4, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-
+        spannableString.setSpan(
+            ForegroundColorSpan(yellowColor),
+            0,
+            4,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
         // Set the color for the last character (A) to yellow
-        spannableString.setSpan(ForegroundColorSpan(Color.BLACK), 4, 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(
+            ForegroundColorSpan(Color.BLACK),
+            4,
+            5,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
         // Set the SpannableString to the TextView
         textView.text = spannableString
     }
+
 }

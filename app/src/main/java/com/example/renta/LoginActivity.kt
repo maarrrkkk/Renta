@@ -9,7 +9,12 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
+import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
 
@@ -30,12 +35,8 @@ class LoginActivity : AppCompatActivity() {
         loginButton = findViewById(R.id.login_button)
         signupRedirectText = findViewById(R.id.signupRedirectText)
         password_forgot = findViewById(R.id.forgot_password)
-
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         firebaseAuth = FirebaseAuth.getInstance()
-
-
-
 
         // Check if the user is already logged in
         if (sharedPreferences.getBoolean("isUserLoggedIn", false)) {

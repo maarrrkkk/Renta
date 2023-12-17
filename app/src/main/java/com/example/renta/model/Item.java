@@ -1,6 +1,5 @@
 package com.example.renta.model;
 
-import java.util.List;
 public class Item {
 
     private String location;
@@ -8,6 +7,7 @@ public class Item {
     private String description;
     private String shortDescription;
     private String image;
+    private String title;
 
     public Item() {
     }
@@ -16,6 +16,7 @@ public class Item {
         this.location = location;
         this.price = price;
         this.shortDescription = shortDescription;
+
     }
 
     public Item(String location, String price, String description, String shortDescription, String image) {
@@ -24,6 +25,7 @@ public class Item {
         this.description = description;
         this.shortDescription = shortDescription;
         this.image = image;
+
     }
 
     public String getImage() {
@@ -62,8 +64,9 @@ public class Item {
         return shortDescription;
     }
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
+    public void setShortDescription(String shortDescription) {this.shortDescription = shortDescription;}
+
+
+
 
 }

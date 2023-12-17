@@ -24,4 +24,6 @@
     <color name="your_light_text_color">#FFFFFF</color> <!-- Light text color on dark background -->
     <color name="your_dark_surface_color">#212121</color> <!-- Adjust this for dark mode -->
 
+    <color name="colorAccent">#FF4081</color>
 </resources>
+

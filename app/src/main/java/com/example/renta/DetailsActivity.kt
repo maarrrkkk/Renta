@@ -59,17 +59,7 @@ class DetailsActivity : AppCompatActivity() {
             makePhoneCall()
         }
 
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CALL_PHONE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(Manifest.permission.CALL_PHONE),
-                PERMISSION_CODE
-            )
-        }
+
 
 
 
