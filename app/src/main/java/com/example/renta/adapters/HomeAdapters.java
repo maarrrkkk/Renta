@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +21,7 @@ import com.example.renta.model.Item;
 
 import java.text.BreakIterator;
 import java.util.List;
+
 
 public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> {
 
@@ -54,14 +55,13 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
                 .placeholder(R.drawable.room)
                 .into(new CustomTarget<Drawable>() {
                     @Override
-
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        holder.relativeLayout.setBackground(resource);
+                        holder.backgroundImageView.setImageDrawable(resource);
                     }
 
                     @Override
                     public void onLoadCleared(@Nullable Drawable placeholder) {
-
+                        // Handle placeholder cleanup if needed
                     }
                 });
     }
@@ -76,8 +76,7 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
         private final TextView price;
         private final TextView location;
         private final TextView shortDescription;
-        private final RelativeLayout relativeLayout;
-
+        private final ImageView backgroundImageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,9 +84,7 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
             price = itemView.findViewById(R.id.price);
             location = itemView.findViewById(R.id.location);
             shortDescription = itemView.findViewById(R.id.short_description);
-            relativeLayout = itemView.findViewById(R.id.relative_layout);
-
-
+            backgroundImageView = itemView.findViewById(R.id.backgroundImageView);
 
             itemView.setOnClickListener(v -> itemListener.OnItemPosition(getAdapterPosition()));
         }

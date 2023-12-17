@@ -14,7 +14,14 @@
         <RelativeLayout
             android:id="@+id/relative_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop">
+
+            <ImageView
+                android:id="@+id/backgroundImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
 
             <LinearLayout
                 android:id="@+id/bottomLinearLayout"
@@ -49,22 +56,22 @@
             <RelativeLayout
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                app:cardCornerRadius="16dp"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_margin="9dp"
-                android:background="@color/colorAccent">
+                android:background="@color/colorAccent"
+                app:cardCornerRadius="16dp">
 
                 <TextView
                     android:id="@+id/price"
-                    android:textAlignment="center"
-                    android:text=""
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
         </RelativeLayout>
