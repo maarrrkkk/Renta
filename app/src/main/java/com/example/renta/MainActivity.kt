@@ -102,10 +102,15 @@ class MainActivity : AppCompatActivity() {
                                     .toString(),
                                 Objects.requireNonNull(dataSnapshot.child("description").value)
                                     .toString(),
-                                Objects.requireNonNull(dataSnapshot.child("shortDescription").value)
+                                Objects.requireNonNull(dataSnapshot.child("category").value)
+                                    .toString(),
+                                Objects.requireNonNull(dataSnapshot.child("name").value)
+                                    .toString(),
+                                Objects.requireNonNull(dataSnapshot.child("inclusions").value)
                                     .toString(),
                                 Objects.requireNonNull(dataSnapshot.child("image").value)
                                     .toString(),
+
                             )
                         )
                     }
@@ -139,8 +144,10 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("price", itemList[position].price)
         intent.putExtra("location", itemList[position].location)
         intent.putExtra("description", itemList[position].description)
-        intent.putExtra("ShortDescription", itemList[position].shortDescription)
+        intent.putExtra("category", itemList[position].category)
         intent.putExtra("image", itemList[position].image)
+        intent.putExtra("inclusions", itemList[position].inclusions)
+        intent.putExtra("name", itemList[position].name)
         startActivity(intent)
     }
 

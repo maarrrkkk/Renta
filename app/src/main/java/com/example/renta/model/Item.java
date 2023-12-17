@@ -5,25 +5,30 @@ public class Item {
     private String location;
     private String price;
     private String description;
-    private String shortDescription;
+    private String category;
+    private String name;
+    private String inclusions;
     private String image;
-    private String title;
+
 
     public Item() {
     }
 
-    public Item(String location, String price, String shortDescription) {
+    public Item(String location, String price, String category, String name) {
         this.location = location;
         this.price = price;
-        this.shortDescription = shortDescription;
+        this.category = category;
+        this.name = name;
 
     }
 
-    public Item(String location, String price, String description, String shortDescription, String image) {
+    public Item(String location, String price, String description, String category, String name, String inclusions, String image) {
         this.location = location;
         this.price = price;
         this.description = description;
-        this.shortDescription = shortDescription;
+        this.category = category;
+        this.name = name;
+        this.inclusions = inclusions;
         this.image = image;
 
     }
@@ -60,11 +65,25 @@ public class Item {
         this.description = description;
     }
 
-    public String getShortDescription() {
-        return shortDescription;
+    public String getName() {
+        return name;
     }
 
-    public void setShortDescription(String shortDescription) {this.shortDescription = shortDescription;}
+    public void setName(String inclusions) {this.name = name;}
+
+    public String getInclusions() {
+        return inclusions;
+    }
+
+    public void setInclusions(String inclusions) {this.inclusions = inclusions;}
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {this.category = category;}
+
+
 
 
 

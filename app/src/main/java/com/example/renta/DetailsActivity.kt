@@ -23,7 +23,9 @@ class DetailsActivity : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
     private lateinit var priceTextView: TextView
-    private lateinit var shortDescriptionTextView: TextView
+    private lateinit var categoryTextView: TextView
+    private lateinit var nameTextView: TextView
+    private lateinit var inclusionsTextView: TextView
     private lateinit var descriptionTextView: TextView
     private lateinit var locationTextView: TextView
 
@@ -32,6 +34,8 @@ class DetailsActivity : AppCompatActivity() {
     private var shdes: String? = null
     private var img: String? = null
     private var loc: String? = null
+    private var nme: String? = null
+    private var inclns: String? = null
 
     fun onBackButtonClick(view: View?) {
         onBackPressed()
@@ -45,7 +49,9 @@ class DetailsActivity : AppCompatActivity() {
 
         imageView = findViewById(R.id.imageView)
         priceTextView = findViewById(R.id.price)
-        shortDescriptionTextView = findViewById(R.id.short_description)
+        categoryTextView = findViewById(R.id.category)
+        nameTextView = findViewById(R.id.name)
+        inclusionsTextView = findViewById(R.id.inclusions)
         descriptionTextView = findViewById(R.id.description)
         locationTextView = findViewById(R.id.location)
 
@@ -56,13 +62,17 @@ class DetailsActivity : AppCompatActivity() {
 
         pri = intent.getStringExtra("price")
         des = intent.getStringExtra("description")
-        shdes = intent.getStringExtra("ShortDescription")
+        shdes = intent.getStringExtra("category")
+        nme = intent.getStringExtra("name")
+        inclns = intent.getStringExtra("inclusions")
         img = intent.getStringExtra("image")
         loc = intent.getStringExtra("location")
 
         priceTextView.text = "₱$pri"
         descriptionTextView.text = des
-        shortDescriptionTextView.text = shdes
+        categoryTextView.text = shdes
+        nameTextView.text = nme
+        inclusionsTextView.text = inclns
         locationTextView.text = loc
 
         // Load the image using Glide

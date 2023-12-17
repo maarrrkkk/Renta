@@ -49,7 +49,8 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
 
         holder.price.setText(currentItem.getPrice());
         holder.location.setText(currentItem.getLocation());
-        holder.shortDescription.setText(currentItem.getShortDescription());
+        holder.category.setText(currentItem.getCategory());
+        holder.name.setText(currentItem.getName());
         Glide.with(context)
                 .load(itemList.get(position).getImage())
                 .placeholder(R.drawable.room)
@@ -75,7 +76,9 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
 
         private final TextView price;
         private final TextView location;
-        private final TextView shortDescription;
+        private final TextView category;
+        private final TextView name;
+
         private final ImageView backgroundImageView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -83,7 +86,9 @@ public class HomeAdapters extends RecyclerView.Adapter<HomeAdapters.ViewHolder> 
 
             price = itemView.findViewById(R.id.price);
             location = itemView.findViewById(R.id.location);
-            shortDescription = itemView.findViewById(R.id.short_description);
+            category = itemView.findViewById(R.id.category);
+            name = itemView.findViewById(R.id.name);
+
             backgroundImageView = itemView.findViewById(R.id.backgroundImageView);
 
             itemView.setOnClickListener(v -> itemListener.OnItemPosition(getAdapterPosition()));
