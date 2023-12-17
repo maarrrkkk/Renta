@@ -67,16 +67,24 @@
                 android:layout_alignParentStart="true"
                 android:layout_margin="16dp">
 
-                <TextView
-                    android:id="@+id/price"
-                    android:text="P2,500"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="35sp"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="16dp"
+                    android:background="@color/colorAccent">
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:textAlignment="center"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="30sp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -138,6 +146,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
+                android:textColor="@color/yellow2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

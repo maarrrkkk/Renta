@@ -14,7 +14,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -53,7 +54,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_name1"
                     style="@style/OutlinedBox"
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -69,7 +70,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_username1"
                     style="@style/OutlinedBox"
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -85,7 +86,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_email1"
                     style="@style/OutlinedBox"
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -101,7 +102,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_phone_number1"
                     style="@style/OutlinedBox"
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -117,7 +118,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_password1"
                     style="@style/OutlinedBox"
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -133,7 +134,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signup_retype_password1"
                     style="@style/OutlinedBox"
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center_horizontal"
@@ -150,16 +151,18 @@
                     android:layout_height="20dp"/>
 
                 <RelativeLayout
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
+
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/signup_button"
                         android:layout_width="130dp"
                         android:layout_height="50dp"
-                        android:id="@+id/signup_button"
-                        android:textSize="20sp"
                         android:text="@string/sign_up"
-                        app:cornerRadius="32dp"/>
+                        android:textSize="20sp"
+                        app:backgroundTint="@color/cyan"
+                        app:cornerRadius="32dp" />
 
                     <TextView
                         android:id="@+id/loginRedirectText"
@@ -168,6 +171,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:layout_marginEnd="3dp"
                         android:padding="8dp"
                         android:text="@string/already_a_user_login"

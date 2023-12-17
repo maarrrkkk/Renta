@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Handler
 import android.text.Spannable
@@ -19,12 +20,15 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.renta.adapters.HomeAdapters
 import com.example.renta.listeners.ItemListener
 import com.example.renta.model.Item
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Objects
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,16 +45,25 @@ class MainActivity : AppCompatActivity() {
         // Initialize SwipeRefreshLayout
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
         swipeRefreshLayout.setOnRefreshListener {
-            // Your logic to refresh the data (e.g., fetch new data from the server)
-            // For demonstration purposes, let's use a delayed refresh (remove this in production)
-            Handler().postDelayed({
-                // Update your RecyclerView data here
-                // For demonstration, we'll notifyDataSetChanged()
-                adapter.notifyDataSetChanged()
+            // Check if there is an active network connection
+            if (isNetworkConnected()) {
+                // Your logic to refresh the data (e.g., fetch new data from the server)
+                // For demonstration purposes, let's use a delayed refresh (remove this in production)
+                Handler().postDelayed({
+                    // Update your RecyclerView data here
+                    // For demonstration, we'll notifyDataSetChanged()
+                    adapter.notifyDataSetChanged()
 
+                    // Hide the refresh indicator
+                    swipeRefreshLayout.isRefreshing = false
+                }, 2000) // Delay in milliseconds (e.g., 2000ms = 2 seconds)
+            } else {
+                // No internet connection, inform the user or take appropriate action
+                // For example, show a Snackbar or Toast message
+                showNoInternetSnackbar()
                 // Hide the refresh indicator
                 swipeRefreshLayout.isRefreshing = false
-            }, 2000) // Delay in milliseconds (e.g., 2000ms = 2 seconds)
+            }
         }
 
         topDealRV = findViewById(R.id.top_deal_RV)
@@ -155,4 +168,21 @@ class MainActivity : AppCompatActivity() {
         // Set the SpannableString to the TextView
         textView.text = spannableString
     }
+
+    private fun isNetworkConnected(): Boolean {
+        val connectivityManager =
+            getSystemService(AppCompatActivity.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected
+    }
+
+    private fun showNoInternetSnackbar() {
+        val snackbar = Snackbar.make(
+            findViewById(android.R.id.content),
+            "No internet connection. Please check your network settings.",
+            Snackbar.LENGTH_LONG
+        )
+        snackbar.show()
+    }
+
 }

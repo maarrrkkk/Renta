@@ -3,6 +3,7 @@ package com.example.renta
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +31,9 @@ class ActivityProfile : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
 
-
+    fun onBackButtonClick(view: View?) {
+        onBackPressed()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
