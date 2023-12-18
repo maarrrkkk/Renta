@@ -27,9 +27,6 @@
             android:name=".ActivityProfile"
             android:exported="false" />
         <activity
-            android:name=".HelperClass"
-            android:exported="false" />
-        <activity
             android:name=".ActivitySignup"
             android:exported="false" />
         <activity

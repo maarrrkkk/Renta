@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
         swipeRefreshLayout.setOnRefreshListener {
             // Check if there is an active network connection
             if (isNetworkConnected()) {
-                // Your logic to refresh the data (e.g., fetch new data from the server)
+
                 // For demonstration purposes, let's use a delayed refresh (remove this in production)
                 Handler().postDelayed({
-                    // Update your RecyclerView data here
+
                     // For demonstration, we'll notifyDataSetChanged()
                     adapter.notifyDataSetChanged()
 
